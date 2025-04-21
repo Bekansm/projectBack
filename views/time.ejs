@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  
+  <main>
+    <h1><%= message %></h1>
+    
+    <% if (typeof error !== 'undefined' && error) { %>
+      <div style="background-color: #ffdddd; padding: 10px;">
+        <%= message %>
+      </div>
+    <% } %>
+    
+    <% if (typeof time !== 'undefined') { %>
+      <div style="border: 1px solid #ccc; padding: 15px; margin: 15px 0;">
+        <h2>Город: <%= city %></h2>
+        <p>Время: <strong><%= time %></strong></p>
+      </div>
+    <% } %>
+    
+    <form id="timeForm">
+      <label for="cityInput">Введите название города:</label>
+      <input type="text" id="cityInput" name="city" placeholder="Нью-Йорк">
+      <button type="submit">Узнать время</button>
+    </form>
+  </main>
+  
+  <script>
+    document.getElementById('timeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const city = document.getElementById('cityInput').value.trim();
+      if (city) {
+        window.location.href = `/time/${city}`;
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  
+  <main>
+    <h1><%= message %></h1>
+    
+    <div style="display: flex; gap: 20px;">
+      <div style="border: 1px solid #ccc; padding: 15px;">
+        <h2>Погода</h2>
+        <p>Узнайте погоду в любом городе</p>
+        <a href="/weather"><button>Перейти</button></a>
+      </div>
+      
+      <div style="border: 1px solid #ccc; padding: 15px;">
+        <h2>Время</h2>
+        <p>Узнайте время в любом городе</p>
+        <a href="/time"><button>Перейти</button></a>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>© 2025</p>
+  </footer>
+</body>
+</html>
